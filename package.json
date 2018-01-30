@@ -17,9 +17,19 @@
     "url": "https://github.com/michaelliao/learn-javascript.git"
   },
   "dependencies": {
-    "koa": "*"
+    "koa": "*",
+    "koa-router": "*",
+    "koa-bodyparser": "*",
+    "nunjucks": "*",
+    "mime": "*",
+    "mz": "*"
   },
   "devDependencies": {
-    "@types/koa": "*"
+    "@types/koa": "*",
+    "@types/koa-router": "*",
+    "@types/koa-bodyparser": "*",
+    "@types/nunjucks": "*",
+    "@types/mime": "*",
+    "@types/mz": "*"
   }
 }
