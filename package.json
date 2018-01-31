@@ -22,7 +22,10 @@
     "koa-bodyparser": "*",
     "nunjucks": "*",
     "mime": "*",
-    "mz": "*"
+    "mz": "*",
+    "sequelize": "*",
+    "mysql2": "*",
+    "node-uuid": "*"
   },
   "devDependencies": {
     "@types/koa": "*",
@@ -30,6 +33,8 @@
     "@types/koa-bodyparser": "*",
     "@types/nunjucks": "*",
     "@types/mime": "*",
-    "@types/mz": "*"
+    "@types/mz": "*",
+    "@types/sequelize": "*",
+    "@types/node-uuid": "*"
   }
 }

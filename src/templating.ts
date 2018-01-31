@@ -2,14 +2,14 @@ import * as Nunjucks from "nunjucks"
 import * as Koa from "koa"
 
 function createEnv(path?: string, fileOpts?: Nunjucks.FileSystemLoaderOptions, configs?: Nunjucks.ConfigureOptions) {
-    let rpath = path || 'views'
+    let realPath = path || 'views'
     let env = new Nunjucks.Environment(
-        new Nunjucks.FileSystemLoader(rpath, fileOpts), configs
+        new Nunjucks.FileSystemLoader(realPath, fileOpts), configs
     )
     return env
 }
 
-function templating(path?: string, fileOpts?: Nunjucks.FileSystemLoaderOptions, configs?: Nunjucks.ConfigureOptions) {
+function template(path?: string, fileOpts?: Nunjucks.FileSystemLoaderOptions, configs?: Nunjucks.ConfigureOptions) {
     let env = createEnv(path, fileOpts, configs)
     return async (ctx: Koa.Context, next: () => Promise<any>) => {
         ctx.render = function (view: string, model: any) {
@@ -19,3 +19,5 @@ function templating(path?: string, fileOpts?: Nunjucks.FileSystemLoaderOptions, 
         await next()
     }
 }
+
+module .exports = template
