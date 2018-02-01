@@ -1,5 +1,6 @@
 import * as Koa from "koa"
 import * as BodyParser from "koa-bodyparser"
+import * as DB from './db'
 
 let controller = require('./controller')
 let staticFiles = require('./static-files')
@@ -13,8 +14,7 @@ app.use(async (ctx, next) => {
     await next()
 })
 
-let db = require('./db')
-db.sync()
+DB.sync()
 app.use(async () => {
     let one = await  user.create({
         name: 'bobo',

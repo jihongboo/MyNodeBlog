@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Koa = require("koa");
 const BodyParser = require("koa-bodyparser");
+const DB = require("./db");
 let controller = require('./controller');
 let staticFiles = require('./static-files');
 let template = require('./templating');
@@ -12,8 +13,7 @@ app.use(async (ctx, next) => {
     console.log(`Progress ${ctx.request.method} ${ctx.request.url}`);
     await next();
 });
-let db = require('./db');
-db.sync();
+DB.sync();
 app.use(async () => {
     let one = await user.create({
         name: 'bobo',

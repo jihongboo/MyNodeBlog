@@ -59,8 +59,8 @@ function defineModel(name, attributes) {
         }
     });
 }
-module.exports.defineModel = defineModel;
-module.exports.sync = () => {
+exports.defineModel = defineModel;
+function sync() {
     // only allow create ddl in non-production environment:
     if (process.env.NODE_ENV !== 'production') {
         sequelize.sync({ force: true });
@@ -68,5 +68,6 @@ module.exports.sync = () => {
     else {
         throw new Error('Cannot sync() when NODE_ENV is set to \'production\'.');
     }
-};
+}
+exports.sync = sync;
 //# sourceMappingURL=db.js.map

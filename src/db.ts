@@ -9,7 +9,7 @@ function generateId() {
 
 let sequelize = new Sequelize(config.database, config.username, config.password, config.options)
 
-function  defineModel(name: string, attributes: {[key: string] : any}) {
+export function defineModel(name: string, attributes: {[key: string] : any}) {
     let attrs: Sequelize.DefineAttributes = {}
     for (let key in attributes) {
         let value = attributes[key]
@@ -60,9 +60,8 @@ function  defineModel(name: string, attributes: {[key: string] : any}) {
     })
 }
 
-module.exports.defineModel = defineModel
-module.exports.sync = () => {
-    // only allow create ddl in non-production environment:
+export function sync() {
+        // only allow create ddl in non-production environment:
     if (process.env.NODE_ENV !== 'production') {
         sequelize.sync({ force: true });
     } else {
