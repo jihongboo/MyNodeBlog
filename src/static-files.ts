@@ -4,7 +4,7 @@ import * as fs from "mz/fs"
 import * as Koa from "koa"
 import { stat } from "mz/fs";
 
-function staficFiles(url: string, dir: string) {
+export default function staficFiles(url: string, dir: string) {
     return async (ctx: Koa.Context, next: () => Promise<any>) => {
         let rpath = ctx.request.path
         if(rpath.startsWith(url)) {
@@ -20,5 +20,3 @@ function staficFiles(url: string, dir: string) {
         }
     }
 }
-
-module.exports = staficFiles

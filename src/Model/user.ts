@@ -1,6 +1,7 @@
 import * as Sequelize from "sequelize"
-let db = require('../db')
-module.exports = db.defineModel('user', {
+import DB from '../db'
+
+export default DB('user', {
     name: Sequelize.STRING(100),
     gender: Sequelize.BOOLEAN,
     password: Sequelize.STRING(100),

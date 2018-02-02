@@ -1,11 +1,11 @@
 import * as Koa from "koa"
 import * as BodyParser from "koa-bodyparser"
 import * as DB from './db'
+import Controller from './controller'
+import StaticFiles from './static-files'
+import Template from './templating'
+import User from './Model/user'
 
-let controller = require('./controller')
-let staticFiles = require('./static-files')
-let template = require('./templating')
-let user = require('./Model/user')
 let app = new Koa()
 // let isProduction = process.env.NODE_ENV === 'production';
 
@@ -16,7 +16,7 @@ app.use(async (ctx, next) => {
 
 DB.sync()
 app.use(async () => {
-    let one = await  user.create({
+    let one = await  User.create({
         name: 'bobo',
         gender: true,
         email: 'jihongboo@qq.com',
@@ -25,10 +25,10 @@ app.use(async () => {
     console.log('create: ' + JSON.stringify(one))
 })
 
-app.use(staticFiles('/static/', process.cwd() + '/static'))
+app.use(StaticFiles('/static/', process.cwd() + '/static'))
 app.use(BodyParser())
-app.use(template())
-app.use(controller())
+app.use(Template())
+app.use(Controller())
 
 app.listen(3000)
 console.log('app started at port 3000...')

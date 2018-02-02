@@ -15,7 +15,7 @@ let fn_signIn = async (ctx: IRouterContext) => {
     }
 }
 
-module.exports = {
+export default {
     'GET /': fn_index,
     'POST /': fn_signIn
 }

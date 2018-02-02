@@ -1,7 +1,7 @@
 //  database
 import * as Sequelize from "sequelize"
 
-let config = {
+export default {
     database: 'MyNodeBlog', // 使用哪个数据库
     username: 'root', // 用户名
     password: '123456', // 口令
@@ -16,5 +16,3 @@ let config = {
         }
     }
 };
-
-module.exports = config;

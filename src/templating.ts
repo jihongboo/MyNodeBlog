@@ -9,7 +9,7 @@ function createEnv(path?: string, fileOpts?: Nunjucks.FileSystemLoaderOptions, c
     return env
 }
 
-function template(path?: string, fileOpts?: Nunjucks.FileSystemLoaderOptions, configs?: Nunjucks.ConfigureOptions) {
+export default function template(path?: string, fileOpts?: Nunjucks.FileSystemLoaderOptions, configs?: Nunjucks.ConfigureOptions) {
     let env = createEnv(path, fileOpts, configs)
     return async (ctx: Koa.Context, next: () => Promise<any>) => {
         ctx.render = function (view: string, model: any) {
@@ -19,5 +19,3 @@ function template(path?: string, fileOpts?: Nunjucks.FileSystemLoaderOptions, co
         await next()
     }
 }
-
-module .exports = template

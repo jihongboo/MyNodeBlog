@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Koa = require("koa");
 const BodyParser = require("koa-bodyparser");
 const DB = require("./db");
-let controller = require('./controller');
-let staticFiles = require('./static-files');
-let template = require('./templating');
-let user = require('./Model/user');
+const controller_1 = require("./controller");
+const static_files_1 = require("./static-files");
+const templating_1 = require("./templating");
+const user_1 = require("./Model/user");
 let app = new Koa();
 // let isProduction = process.env.NODE_ENV === 'production';
 app.use(async (ctx, next) => {
@@ -15,7 +15,7 @@ app.use(async (ctx, next) => {
 });
 DB.sync();
 app.use(async () => {
-    let one = await user.create({
+    let one = await user_1.default.create({
         name: 'bobo',
         gender: true,
         email: 'jihongboo@qq.com',
@@ -23,10 +23,10 @@ app.use(async () => {
     });
     console.log('create: ' + JSON.stringify(one));
 });
-app.use(staticFiles('/static/', process.cwd() + '/static'));
+app.use(static_files_1.default('/static/', process.cwd() + '/static'));
 app.use(BodyParser());
-app.use(template());
-app.use(controller());
+app.use(templating_1.default());
+app.use(controller_1.default());
 app.listen(3000);
 console.log('app started at port 3000...');
 //# sourceMappingURL=app.js.map

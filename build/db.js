@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Sequelize = require("sequelize");
 const Uuid = require("node-uuid");
-let config = require('./config');
+const config_1 = require("./config");
 function generateId() {
     return Uuid.v4();
 }
-let sequelize = new Sequelize(config.database, config.username, config.password, config.options);
+let sequelize = new Sequelize(config_1.default.database, config_1.default.username, config_1.default.password, config_1.default.options);
 function defineModel(name, attributes) {
     let attrs = {};
     for (let key in attributes) {
@@ -59,7 +59,7 @@ function defineModel(name, attributes) {
         }
     });
 }
-exports.defineModel = defineModel;
+exports.default = defineModel;
 function sync() {
     // only allow create ddl in non-production environment:
     if (process.env.NODE_ENV !== 'production') {

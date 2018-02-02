@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let config = {
+exports.default = {
     database: 'MyNodeBlog',
     username: 'root',
     password: '123456',
@@ -15,5 +15,4 @@ let config = {
         }
     }
 };
-module.exports = config;
 //# sourceMappingURL=config.js.map

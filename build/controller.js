@@ -19,9 +19,10 @@ function addControllers(dir) {
         addMapping(mapping);
     }
 }
-module.exports = function (dir) {
+function default_1(dir) {
     let controllers_dir = dir || 'controllers';
     addControllers(controllers_dir);
     return router.routes();
-};
+}
+exports.default = default_1;
 //# sourceMappingURL=controller.js.map

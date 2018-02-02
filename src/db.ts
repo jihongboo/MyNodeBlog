@@ -1,7 +1,6 @@
 import * as Sequelize from "sequelize"
 import * as Uuid from "node-uuid"
-
-let config = require('./config')
+import config from './config'
 
 function generateId() {
     return Uuid.v4();
@@ -9,7 +8,7 @@ function generateId() {
 
 let sequelize = new Sequelize(config.database, config.username, config.password, config.options)
 
-export function defineModel(name: string, attributes: {[key: string] : any}) {
+export default function defineModel(name: string, attributes: {[key: string] : any}) {
     let attrs: Sequelize.DefineAttributes = {}
     for (let key in attributes) {
         let value = attributes[key]

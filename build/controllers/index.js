@@ -14,7 +14,7 @@ let fn_signIn = async (ctx) => {
         <p><a href="/">Try again</a></p>`;
     }
 };
-module.exports = {
+exports.default = {
     'GET /': fn_index,
     'POST /': fn_signIn
 };

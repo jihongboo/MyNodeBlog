@@ -21,5 +21,5 @@ function staficFiles(url, dir) {
         }
     };
 }
-module.exports = staficFiles;
+exports.default = staficFiles;
 //# sourceMappingURL=static-files.js.map

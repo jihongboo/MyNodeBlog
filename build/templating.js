@@ -16,5 +16,5 @@ function template(path, fileOpts, configs) {
         await next();
     };
 }
-module.exports = template;
+exports.default = template;
 //# sourceMappingURL=templating.js.map

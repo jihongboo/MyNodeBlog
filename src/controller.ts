@@ -21,7 +21,7 @@ function addControllers(dir: string) {
     }
 }
 
-module.exports = function(dir: string) {
+export default function(dir?: string) {
     let controllers_dir = dir || 'controllers'
     addControllers(controllers_dir)
     return router.routes()
