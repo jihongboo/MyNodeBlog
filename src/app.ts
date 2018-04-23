@@ -14,16 +14,16 @@ app.use(async (ctx, next) => {
     await next()
 })
 
-DB.sync()
-app.use(async () => {
-    let one = await  User.create({
-        name: 'bobo',
-        gender: true,
-        email: 'jihongboo@qq.com',
-        password: '123456'
-    })
-    console.log('create: ' + JSON.stringify(one))
-})
+// DB.sync()
+// app.use(async () => {
+//     let one = await  User.create({
+//         name: 'bobo',
+//         gender: true,
+//         email: 'jihongboo@qq.com',
+//         password: '123456'
+//     })
+//     console.log('create: ' + JSON.stringify(one))
+// })
 
 app.use(StaticFiles('/static/', process.cwd() + '/static'))
 app.use(BodyParser())
